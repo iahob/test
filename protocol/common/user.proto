@@ -1,0 +1,10 @@
+syntax = "proto3";
+package common;
+option go_package = "life/protocol/common;common";
+
+message UserInfo {
+  string greeting = 1;
+  double mail_count_default = 2;
+  string code = 3;
+}
+
