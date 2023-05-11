@@ -1,4 +1,4 @@
-module test
+module pangu
 
 go 1.20
 

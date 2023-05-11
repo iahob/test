@@ -1,6 +1,6 @@
 syntax = "proto3";
-package hello;
-option go_package = ".;hello";
+package common;
+option go_package = "pangu/protocol/common;common";
 
 message HelloRequest {
   string greeting = 1;

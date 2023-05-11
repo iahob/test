@@ -5,7 +5,7 @@ echo '
 
 echo "proto builder start"
 
-bash githooks/builder.sh ($pwd)
+docker run --rm -v $(pwd):/go/src/app -w /go/src/app yuwenhaibo/proto-builder sh builder.sh
 
 if [[ ! $(git diff --name-only) ]]; then
         echo "Needless To add"

@@ -7,16 +7,16 @@ import (
 	"time"
 
 	"google.golang.org/grpc"
-	hello "test/protocol"
-	hello2 "test/protocol/hello"
+	"pangu/protocol/common"
+	"pangu/protocol/hello"
 )
 
 type ServerImpl struct {
-	hello2.UnimplementedHelloServiceServer
+	hello.UnimplementedHelloServiceServer
 }
 
-func (s *ServerImpl) SayHello(context.Context, *hello.HelloRequest) (*hello.HelloResponse, error) {
-	return &hello.HelloResponse{
+func (s *ServerImpl) SayHello(context.Context, *common.HelloRequest) (*common.HelloResponse, error) {
+	return &common.HelloResponse{
 		Reply: "hello",
 		Code:  "100",
 		Times: time.Now().Unix(),
@@ -30,7 +30,7 @@ func main() {
 		return
 	}
 	s := grpc.NewServer()
-	hello2.RegisterHelloServiceServer(s, &ServerImpl{})
+	hello.RegisterHelloServiceServer(s, &ServerImpl{})
 	err = s.Serve(lister)
 	if err != nil {
 		return
