@@ -4,6 +4,17 @@ echo '
 #/bin/bash
 
 echo "proto builder start"
+for file in $(git diff --cached --name-only)
+do
+    if [[ "${file##*.}"x = "proto"x ]] ;
+    then
+      echo "files:${file} has changed, builder start"
+      break
+    else
+      echo "skip"
+      continue
+    fi
+done
 
 docker run --rm -v $(pwd):/go/src/app -w /go/src/app yuwenhaibo/proto-builder sh builder.sh
 

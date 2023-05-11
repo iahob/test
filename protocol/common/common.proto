@@ -25,4 +25,5 @@ message YesResponse {
   string code = 2;
   int64 times = 3;
   string count = 4;
+  int32 data = 5;
 }
