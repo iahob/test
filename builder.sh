@@ -28,7 +28,19 @@ builder(){
   protoc --go-grpc_out=paths=source_relative:. --go_out=paths=source_relative:. ${1};
 }
 
+judgement() {
+    for file in $(git diff --cached --name-only)
+    do
 
-read_dir $protocol
+        if [[ "${file##*.}"x = "proto"x ]] ;
+        then
+          echo "files has changed, builder start"
+          #read_dir $protocol
+          return
+        fi
+    done
+}
+
+judgement
 
 
