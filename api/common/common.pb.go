@@ -4,7 +4,7 @@
 // 	protoc        v3.21.9
 // source: common.proto
 
-package hello
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"

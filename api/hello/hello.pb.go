@@ -9,6 +9,8 @@ package hello
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	"test/api"
+
 	reflect "reflect"
 )
 
@@ -33,8 +35,8 @@ var file_hello_proto_rawDesc = []byte{
 }
 
 var file_hello_proto_goTypes = []interface{}{
-	(*HelloRequest)(nil),  // 0: hello.HelloRequest
-	(*HelloResponse)(nil), // 1: hello.HelloResponse
+	(*hello.HelloRequest)(nil),  // 0: hello.HelloRequest
+	(*hello.HelloResponse)(nil), // 1: hello.HelloResponse
 }
 var file_hello_proto_depIdxs = []int32{
 	0, // 0: hello.HelloService.SayHello:input_type -> hello.HelloRequest
@@ -51,7 +53,7 @@ func file_hello_proto_init() {
 	if File_hello_proto != nil {
 		return
 	}
-	file_common_proto_init()
+	hello.file_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
