@@ -146,6 +146,132 @@ func (x *HelloResponse) GetTimes() int64 {
 	return 0
 }
 
+type YesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Greeting         string  `protobuf:"bytes,1,opt,name=greeting,proto3" json:"greeting,omitempty"`
+	MailCountDefault float64 `protobuf:"fixed64,2,opt,name=mail_count_default,json=mailCountDefault,proto3" json:"mail_count_default,omitempty"`
+	Code             string  `protobuf:"bytes,3,opt,name=code,proto3" json:"code,omitempty"`
+}
+
+func (x *YesRequest) Reset() {
+	*x = YesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protocol_common_common_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *YesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*YesRequest) ProtoMessage() {}
+
+func (x *YesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_protocol_common_common_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use YesRequest.ProtoReflect.Descriptor instead.
+func (*YesRequest) Descriptor() ([]byte, []int) {
+	return file_protocol_common_common_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *YesRequest) GetGreeting() string {
+	if x != nil {
+		return x.Greeting
+	}
+	return ""
+}
+
+func (x *YesRequest) GetMailCountDefault() float64 {
+	if x != nil {
+		return x.MailCountDefault
+	}
+	return 0
+}
+
+func (x *YesRequest) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+type YesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Reply string `protobuf:"bytes,1,opt,name=reply,proto3" json:"reply,omitempty"`
+	Code  string `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
+	Times int64  `protobuf:"varint,3,opt,name=times,proto3" json:"times,omitempty"`
+}
+
+func (x *YesResponse) Reset() {
+	*x = YesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protocol_common_common_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *YesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*YesResponse) ProtoMessage() {}
+
+func (x *YesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_protocol_common_common_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use YesResponse.ProtoReflect.Descriptor instead.
+func (*YesResponse) Descriptor() ([]byte, []int) {
+	return file_protocol_common_common_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *YesResponse) GetReply() string {
+	if x != nil {
+		return x.Reply
+	}
+	return ""
+}
+
+func (x *YesResponse) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+func (x *YesResponse) GetTimes() int64 {
+	if x != nil {
+		return x.Times
+	}
+	return 0
+}
+
 var File_protocol_common_common_proto protoreflect.FileDescriptor
 
 var file_protocol_common_common_proto_rawDesc = []byte{
@@ -163,9 +289,21 @@ var file_protocol_common_common_proto_rawDesc = []byte{
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x72, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x63,
 	0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12,
 	0x14, 0x0a, 0x05, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05,
-	0x74, 0x69, 0x6d, 0x65, 0x73, 0x42, 0x1d, 0x5a, 0x1b, 0x6c, 0x69, 0x66, 0x65, 0x2f, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x63, 0x6f, 0x6c, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x3b, 0x63, 0x6f,
-	0x6d, 0x6d, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x69, 0x6d, 0x65, 0x73, 0x22, 0x6a, 0x0a, 0x0a, 0x59, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x12,
+	0x2c, 0x0a, 0x12, 0x6d, 0x61, 0x69, 0x6c, 0x5f, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x5f, 0x64, 0x65,
+	0x66, 0x61, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x01, 0x52, 0x10, 0x6d, 0x61, 0x69,
+	0x6c, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x44, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x12, 0x12, 0x0a,
+	0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x63, 0x6f, 0x64,
+	0x65, 0x22, 0x4d, 0x0a, 0x0b, 0x59, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x14, 0x0a, 0x05, 0x72, 0x65, 0x70, 0x6c, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x05, 0x72, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69,
+	0x6d, 0x65, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x74, 0x69, 0x6d, 0x65, 0x73,
+	0x42, 0x1d, 0x5a, 0x1b, 0x6c, 0x69, 0x66, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x6f,
+	0x6c, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x3b, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -180,10 +318,12 @@ func file_protocol_common_common_proto_rawDescGZIP() []byte {
 	return file_protocol_common_common_proto_rawDescData
 }
 
-var file_protocol_common_common_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_protocol_common_common_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_protocol_common_common_proto_goTypes = []interface{}{
 	(*HelloRequest)(nil),  // 0: common.HelloRequest
 	(*HelloResponse)(nil), // 1: common.HelloResponse
+	(*YesRequest)(nil),    // 2: common.YesRequest
+	(*YesResponse)(nil),   // 3: common.YesResponse
 }
 var file_protocol_common_common_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -223,6 +363,30 @@ func file_protocol_common_common_proto_init() {
 				return nil
 			}
 		}
+		file_protocol_common_common_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*YesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_protocol_common_common_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*YesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -230,7 +394,7 @@ func file_protocol_common_common_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_protocol_common_common_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

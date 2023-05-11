@@ -5,4 +5,5 @@ option go_package = "life/protocol/hello;hello";
 
 service HelloService {
   rpc SayHello (common.HelloRequest) returns (common.HelloResponse);
+  rpc SayYes (common.YesRequest) returns (common.YesResponse);
 }

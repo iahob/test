@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	HelloService_SayHello_FullMethodName = "/hello.HelloService/SayHello"
+	HelloService_SayYes_FullMethodName   = "/hello.HelloService/SayYes"
 )
 
 // HelloServiceClient is the client API for HelloService service.
@@ -28,6 +29,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HelloServiceClient interface {
 	SayHello(ctx context.Context, in *common.HelloRequest, opts ...grpc.CallOption) (*common.HelloResponse, error)
+	SayYes(ctx context.Context, in *common.YesRequest, opts ...grpc.CallOption) (*common.YesResponse, error)
 }
 
 type helloServiceClient struct {
@@ -47,11 +49,21 @@ func (c *helloServiceClient) SayHello(ctx context.Context, in *common.HelloReque
 	return out, nil
 }
 
+func (c *helloServiceClient) SayYes(ctx context.Context, in *common.YesRequest, opts ...grpc.CallOption) (*common.YesResponse, error) {
+	out := new(common.YesResponse)
+	err := c.cc.Invoke(ctx, HelloService_SayYes_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // HelloServiceServer is the server API for HelloService service.
 // All implementations must embed UnimplementedHelloServiceServer
 // for forward compatibility
 type HelloServiceServer interface {
 	SayHello(context.Context, *common.HelloRequest) (*common.HelloResponse, error)
+	SayYes(context.Context, *common.YesRequest) (*common.YesResponse, error)
 	mustEmbedUnimplementedHelloServiceServer()
 }
 
@@ -61,6 +73,9 @@ type UnimplementedHelloServiceServer struct {
 
 func (UnimplementedHelloServiceServer) SayHello(context.Context, *common.HelloRequest) (*common.HelloResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
+}
+func (UnimplementedHelloServiceServer) SayYes(context.Context, *common.YesRequest) (*common.YesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SayYes not implemented")
 }
 func (UnimplementedHelloServiceServer) mustEmbedUnimplementedHelloServiceServer() {}
 
@@ -93,6 +108,24 @@ func _HelloService_SayHello_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _HelloService_SayYes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.YesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelloServiceServer).SayYes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HelloService_SayYes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelloServiceServer).SayYes(ctx, req.(*common.YesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // HelloService_ServiceDesc is the grpc.ServiceDesc for HelloService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -103,6 +136,10 @@ var HelloService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SayHello",
 			Handler:    _HelloService_SayHello_Handler,
+		},
+		{
+			MethodName: "SayYes",
+			Handler:    _HelloService_SayYes_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -13,3 +13,15 @@ message HelloResponse {
   string code = 2;
   int64 times = 3;
 }
+
+message YesRequest {
+  string greeting = 1;
+  double mail_count_default = 2;
+  string code = 3;
+}
+
+message YesResponse {
+  string reply = 1;
+  string code = 2;
+  int64 times = 3;
+}
