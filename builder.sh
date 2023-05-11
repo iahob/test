@@ -37,6 +37,9 @@ judgement() {
           echo "files has changed, builder start"
           #read_dir $protocol
           return
+        else
+          echo "skip"
+          return
         fi
     done
 }
