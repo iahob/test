@@ -19,6 +19,7 @@ message YesRequest {
   double mail_count_default = 2;
   string code = 3;
   string count = 4;
+  int32 data = 5;
 }
 
 message YesResponse {
