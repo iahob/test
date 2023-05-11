@@ -16,7 +16,6 @@ do
     fi
 done
 
-
 if [[ ! $(git diff --name-only) ]]; then
         echo "Needless To add"
     else
