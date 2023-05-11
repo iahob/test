@@ -35,7 +35,7 @@ judgement() {
         if [[ "${file##*.}"x = "proto"x ]] ;
         then
           echo "files has changed, builder start"
-          #read_dir $protocol
+          read_dir $protocol
           return
         else
           echo "skip"
