@@ -11,5 +11,5 @@ message HelloRequest {
 message HelloResponse {
   string reply = 1;
   string code = 2;
-  int32 times = 3;
+  int64 times = 3;
 }
