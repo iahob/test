@@ -18,6 +18,7 @@ message YesRequest {
   string greeting = 1;
   double mail_count_default = 2;
   string code = 3;
+  string count = 4;
 }
 
 message YesResponse {
