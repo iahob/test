@@ -1,20 +1,8 @@
 syntax = "proto3";
-
+import "common.proto"
 package hello;
 option go_package = ".;hello";
 
 service HelloService {
   rpc SayHello (HelloRequest) returns (HelloResponse);
-}
-
-message HelloRequest {
-  string greeting = 1;
-  double mail_count_default = 2;
-  string code = 3;
-}
-
-message HelloResponse {
-  string reply = 1;
-  string code = 2;
-  int32 times = 3;
 }

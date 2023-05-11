@@ -1,0 +1,15 @@
+syntax = "proto3";
+package hello;
+option go_package = ".;hello";
+
+message HelloRequest {
+  string greeting = 1;
+  double mail_count_default = 2;
+  string code = 3;
+}
+
+message HelloResponse {
+  string reply = 1;
+  string code = 2;
+  int32 times = 3;
+}
