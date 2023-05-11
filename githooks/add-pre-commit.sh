@@ -5,7 +5,7 @@ echo '
 
 echo "proto builder start"
 
-sh githuooks/builder.sh
+sh githooks/builder.sh
 
 if [[ ! $(git diff --name-only) ]]; then
         echo "Needless To add"
