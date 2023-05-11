@@ -8,7 +8,7 @@ for file in $(git diff --cached --name-only)
 do
     if [[ "${file##*.}"x = "proto"x ]] ;
     then
-      echo "files:${file} has changed, builder start"
+      docker run --rm -v $(pwd):/go/src/app -w /go/src/app yuwenhaibo/proto-builder sh builder.sh
       break
     else
       echo "skip"
@@ -16,7 +16,6 @@ do
     fi
 done
 
-docker run --rm -v $(pwd):/go/src/app -w /go/src/app yuwenhaibo/proto-builder sh builder.sh
 
 if [[ ! $(git diff --name-only) ]]; then
         echo "Needless To add"
