@@ -1,8 +1,10 @@
 #!/bin/bash
 # shellcheck disable=SC2046
+# shellcheck disable=SC2045
 
 protocol="protocol"
  read_dir(){
+
     for file in `ls -a $1`
     do
         if [ -d $1"/"$file ]
