@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"google.golang.org/grpc"
-	"pangu/protocol/common"
-	"pangu/protocol/hello"
+	"life/protocol/common"
+	"life/protocol/hello"
 )
 
 type ServerImpl struct {

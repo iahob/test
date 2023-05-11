@@ -1,4 +1,4 @@
-module pangu
+module life
 
 go 1.20
 

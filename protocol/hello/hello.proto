@@ -1,7 +1,7 @@
 syntax = "proto3";
 import "protocol/common/common.proto";
 package hello;
-option go_package = "protocol/hello;hello";
+option go_package = "life/protocol/hello;hello";
 
 service HelloService {
   rpc SayHello (common.HelloRequest) returns (common.HelloResponse);
