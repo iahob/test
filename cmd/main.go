@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"google.golang.org/grpc"
-	hello "test/api"
-	hello2 "test/api/hello"
+	hello "test/protocol"
+	hello2 "test/protocol/hello"
 )
 
 type ServerImpl struct {
