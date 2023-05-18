@@ -26,6 +26,7 @@ protocol="protocol"
 builder(){
   echo "build ${1}"
   protoc --go-grpc_out=paths=source_relative:. --go_out=paths=source_relative:. ${1};
+  protoc --proto_path=. --objc_out=. ${1};
 }
 
 
