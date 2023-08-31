@@ -1,25 +1,12 @@
 package main
 
 import (
-	"context"
 	"fmt"
-	"life/api/common"
-	"net"
-	"time"
-
 	"google.golang.org/grpc"
 	"life/api/hello"
+	"life/server"
+	"net"
 )
-
-type ServerImpl struct {
-	hello.UnimplementedHelloServiceServer
-}
-
-func (s *ServerImpl) SayHello(context.Context, *common.HelloRequest) (*common.HelloResponse, error) {
-	return &hello.Response{
-		Reply: time.Now().Unix(),
-	}, nil
-}
 
 func main() {
 	lister, err := net.Listen("tcp", ":8000")
@@ -28,7 +15,7 @@ func main() {
 		return
 	}
 	s := grpc.NewServer()
-	hello.RegisterHelloServiceServer(s, &ServerImpl{})
+	hello.RegisterServiceServer(s, &server.ServerImpl{})
 	err = s.Serve(lister)
 	if err != nil {
 		return
