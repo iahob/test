@@ -6,6 +6,7 @@ message Request {
 }
 message Response {
   string reply = 1;
+  int64 update_at = 2;
 }
 service Service {
   rpc SayHello (Request) returns (Response);
