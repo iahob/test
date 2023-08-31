@@ -10,6 +10,6 @@ message Response {
   string reply = 1;
 }
 
-service HelloService {
+service Service {
   rpc SayHello (Request) returns (Response);
 }

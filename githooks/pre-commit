@@ -1,0 +1,22 @@
+
+#/bin/bash
+echo "current dir"
+pwd
+
+
+echo "dependency builder start"
+for file in $(git diff --cached --name-only)
+do
+    if [[ "${file##*.}"x = "proto"x ]] ;
+    then
+      docker run --rm -v $(pwd):/go/src/app -w /go/src/app yuwenhaibo/proto-builder sh hooks/proto-builder.sh "api"
+      git add *.pb.go
+      break
+    else
+      echo "skip"
+      continue
+    fi
+done
+echo "dependency builder done"
+
+
