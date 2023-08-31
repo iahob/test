@@ -2,14 +2,14 @@ syntax = "proto3";
 package hello;
 option go_package = "life/protocol/hello;hello";
 
-message HelloRequest {
+message Request {
   string greeting = 1;
 }
 
-message HelloResponse {
+message Response {
   string reply = 1;
 }
 
 service HelloService {
-  rpc SayHello (HelloRequest) returns (HelloResponse);
+  rpc SayHello (Request) returns (Response);
 }

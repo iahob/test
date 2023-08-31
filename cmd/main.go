@@ -3,11 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
+	"life/protocol/common"
 	"net"
 	"time"
 
 	"google.golang.org/grpc"
-	"life/protocol/common"
 	"life/protocol/hello"
 )
 
@@ -16,7 +16,7 @@ type ServerImpl struct {
 }
 
 func (s *ServerImpl) SayHello(context.Context, *common.HelloRequest) (*common.HelloResponse, error) {
-	return &common.HelloResponse{
+	return &hello.HelloResponse{
 		Reply: "hello",
 		Code:  "100",
 		Times: time.Now().Unix(),
