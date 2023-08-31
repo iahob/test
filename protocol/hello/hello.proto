@@ -1,10 +1,15 @@
 syntax = "proto3";
-import "protocol/common/common.proto";
 package hello;
 option go_package = "life/protocol/hello;hello";
 
+message HelloRequest {
+  string greeting = 1;
+}
+
+message HelloResponse {
+  string reply = 1;
+}
+
 service HelloService {
-  rpc SayHello (common.HelloRequest) returns (common.HelloResponse);
-  rpc SayYes (common.YesRequest) returns (common.YesResponse);
-  rpc SayNo (common.YesRequest) returns (common.YesResponse);
+  rpc SayHello (HelloRequest) returns (HelloResponse);
 }

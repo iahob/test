@@ -23,14 +23,6 @@ func (s *ServerImpl) SayHello(context.Context, *common.HelloRequest) (*common.He
 	}, nil
 }
 
-func (s *ServerImpl) SayYes(context.Context, *common.YesRequest) (*common.YesResponse, error) {
-	return &common.YesResponse{
-		Reply: "hello",
-		Code:  "100",
-		Times: time.Now().Unix(),
-	}, nil
-}
-
 func main() {
 	lister, err := net.Listen("tcp", ":8000")
 	if err != nil {
