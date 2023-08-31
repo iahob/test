@@ -17,9 +17,7 @@ type ServerImpl struct {
 
 func (s *ServerImpl) SayHello(context.Context, *common.HelloRequest) (*common.HelloResponse, error) {
 	return &hello.Response{
-		Reply: "hello",
-		Code:  "100",
-		Times: time.Now().Unix(),
+		Reply: time.Now().Unix(),
 	}, nil
 }
 
