@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	lister, err := net.Listen("tcp", ":8000")
+	lister, err := net.Listen("tcp", ":6666")
 	if err != nil {
 		fmt.Println(err)
 		return
