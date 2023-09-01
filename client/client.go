@@ -32,7 +32,11 @@ func main() {
 		}
 		client := hello.NewServiceClient(conn)
 		res, err := client.SayHello(context.TODO(), &hello.Request{})
-		log.Printf("msg:%s time:%d err:%v", res.Reply, res.UpdateAt, err)
+		if err != nil {
+			log.Printf("err:%v", err)
+		} else {
+			log.Printf("msg:%s time:%d ", res.Reply, res.UpdateAt)
+		}
 		i++
 		time.Sleep(3 * time.Second)
 	}
