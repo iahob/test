@@ -1,6 +1,6 @@
 syntax = "proto3";
 package common;
-option go_package = "life/protocol/common;common";
+option go_package = "life/api/utils/common;common";
 
 message HelloRequest {
   string greeting = 1;

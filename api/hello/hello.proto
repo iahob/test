@@ -1,7 +1,7 @@
 syntax = "proto3";
 package hello;
-option go_package = "life/protocol/hello;hello";
-import "api/common/common.proto";
+option go_package = "life/api/hello;hello";
+import "api/utils/common/common.proto";
 
 message Request {
   string greeting = 1;
