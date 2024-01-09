@@ -4,7 +4,7 @@ echo "current dir: $(pwd)"
 
 if git diff --cached --name-only | grep -q '\.proto$'; then
   echo "pb builder start"
-  docker run --rm -v $(pwd):/go/src/app -w /go/src/app --name builder yuwenhaibo/proto-builder sh hooks/proto-builder.sh "api"
+  docker run --rm -v $(pwd):/go/src/app -w /go/src/app  yuwenhaibo/proto-builder sh hooks/proto-builder.sh "api"
   echo "pb builder done"
   git add .
 fi
