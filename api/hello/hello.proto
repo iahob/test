@@ -1,13 +1,17 @@
 syntax = "proto3";
 package hello;
 option go_package = "life/protocol/hello;hello";
+import "api/common/common.proto";
+
 message Request {
   string greeting = 1;
+  common.HelloRequest req = 2;
 }
 
 message Response {
   string reply = 1;
   int64 update_at = 2;
+    
 }
 
 service Service {

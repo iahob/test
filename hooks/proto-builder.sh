@@ -1,22 +1,15 @@
 #!/bin/bash
 
+# 遍历API文件夹下的所有子文件夹
 function builder() {
-     for file in `ls -a $1`
-        do
-            if [ -d $1"/"$file ]
-            then
-                if [[ $file != '.' && $file != '..' ]]
-                then
-                    builder $1"/"$file
-                fi
-            else
-
-              if [[ "${file##*.}"x = "proto"x ]] ;
-              then
-                protoc --go-grpc_out=paths=source_relative:. --go_out=paths=source_relative:. $1/$file;
-              fi
-            fi
-        done
+  for dir in $1/*/; do
+    dir=${dir%*/}  # 删除末尾的斜杠
+    for file in $dir/*.proto; do
+      protoc --go-grpc_out=paths=source_relative:. --go_out=paths=source_relative:. $file
+    done
+  done
 }
 
 builder $1
+
+ 
