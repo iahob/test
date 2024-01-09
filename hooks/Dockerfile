@@ -8,7 +8,7 @@ RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.3.0
 
 #ENV PATH="$PATH:$(go env GOPATH)/bin"
 
-WORKDIR /go/src/app
+WORKDIR /app
 
 # docker build --platform=linux/arm64 -t yuwenhaibo/proto-builder-arm:latest .
 # docker build --platform=linux/amd64 -t yuwenhaibo/proto-builder-amd:latest .

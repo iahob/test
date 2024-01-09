@@ -1,7 +1,6 @@
+#!/bin/bash
 
-#/bin/bash
-echo "current dir"
-pwd
+echo "current dir: $(pwd)"
 
 
 echo "dependency builder start"
