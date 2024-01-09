@@ -11,7 +11,7 @@
 #  done
 #}
 
-home=$pwd/$1
+home=$(pwd)/$1
 echo $home
 protoc -I=$home --go_out=plugins=grpc,paths=source_relative:$home $home/**/*.proto
 
