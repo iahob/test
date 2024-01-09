@@ -11,7 +11,7 @@
 #  done
 #}
 
-protoc -I=./$1 --go_out=plugins=grpc,paths=source_relative:./$1 ./$1/**/*.proto
+protoc -I=$1 --go_out=plugins=grpc,paths=source_relative:$1 $1/**/*.proto
 
 
 #builder $1
