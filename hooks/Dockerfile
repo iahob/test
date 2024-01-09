@@ -12,3 +12,4 @@ WORKDIR /go/src/app
 
 # docker build --platform=linux/arm64 -t yuwenhaibo/proto-builder-arm:latest .
 # docker build --platform=linux/amd64 -t yuwenhaibo/proto-builder-amd:latest .
+# docker manifest create yuwenhaibo/proto-builder yuwenhaibo/proto-builder-arm yuwenhaibo/proto-builder-amd
